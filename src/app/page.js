@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import BasicSelect from "@/components/select";
 import BasicTable from "./table/page";
+import BasicLineChart from "./line_graph/page";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
 
       <div className={styles.center}>
         <BasicTable />
+        {/* <BasicLineChart /> */}
       </div>
     </main>
   );
