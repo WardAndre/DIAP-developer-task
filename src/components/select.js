@@ -1,20 +1,20 @@
-"use client"
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+"use client";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
-export default function BasicSelect() {
-  const [visualizationType, setVisualizationType] = React.useState('');
-
+export default function BasicSelect({
+  setVisualizationType,
+  visualizationType,
+}) {
   const handleChange = (event) => {
     setVisualizationType(event.target.value);
   };
 
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box sx={{ width: 300 }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Select</InputLabel>
         <Select
@@ -25,7 +25,7 @@ export default function BasicSelect() {
           onChange={handleChange}
         >
           <MenuItem value={"Table"}>Table</MenuItem>
-          <MenuItem value={"Line Graph"}>Line Graph</MenuItem>
+          <MenuItem value={"LineGraph"}>Line Graph</MenuItem>
           <MenuItem value={"Histogram"}>Histogram</MenuItem>
         </Select>
       </FormControl>

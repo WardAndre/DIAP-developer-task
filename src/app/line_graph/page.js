@@ -4,8 +4,7 @@ import { LineChart } from "@mui/x-charts/LineChart";
 import { titanicData } from "@/utils/titanicData";
 
 export default function BasicLineChart() {
-  
-  const ageFaresArr = titanicData.reduce((acc, cur) => {
+  const faresByAge = titanicData.reduce((acc, cur) => {
     let idx = acc.findIndex((e) => e.Age === cur.Age);
     let fare = cur.Fare;
 
@@ -20,7 +19,7 @@ export default function BasicLineChart() {
     return acc;
   }, []);
 
-  const graphData = ageFaresArr
+  const chartData = faresByAge
     .map((obj) => ({
       Age: obj.Age,
       Fare: Number(
@@ -32,15 +31,11 @@ export default function BasicLineChart() {
 
   return (
     <LineChart
-      dataset={graphData}
-      xAxis={[{ dataKey: "Age" }]}
-      series={[
-        {
-          dataKey: "Fare",
-        },
-      ]}
+      dataset={chartData}
+      xAxis={[{ dataKey: "Age", label: "Passengers Age" }]}
+      series={[{ dataKey: "Fare", label: "Average Fare Price" }]}
       width={1200}
-      height={350}
+      height={450}
     />
   );
 }

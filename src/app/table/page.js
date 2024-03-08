@@ -8,21 +8,8 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { titanicData } from "@/utils/titanicData";
 
-function createData({
-  PassengerId,
-  Survived,
-  Pclass,
-  Name,
-  Sex,
-  Age,
-  SibSp,
-  Parch,
-  Ticket,
-  Fare,
-  Cabin,
-  Embarked,
-}) {
-  return {
+function createData(obj) {
+  const {
     PassengerId,
     Survived,
     Pclass,
@@ -35,7 +22,9 @@ function createData({
     Fare,
     Cabin,
     Embarked,
-  };
+  } = obj;
+
+  return obj;
 }
 
 const rows = titanicData.map((obj) => createData(obj));
@@ -46,7 +35,7 @@ export default function BasicTable() {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            {Object.keys(titanicData[0]).map((item) => (
+            {Object.keys(rows[0]).map((item) => (
               <TableCell key={item}>{item}</TableCell>
             ))}
           </TableRow>
